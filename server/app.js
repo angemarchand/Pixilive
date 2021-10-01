@@ -42,12 +42,12 @@ app.post('/user/register', async(req, res) => {
 })
 
 app.post('/user/login', (req, res) => {
-
+    const db       = dbServices.getDbServicesInstance();
     const email    = req.body.email;
     const password = req.body.password;
 
     console.log(req.body);
-    db.query("SELECT * FROM user WHERE email = ?;", [email],
+    db.db.query("SELECT * FROM user WHERE email = ?;", [email],
     (err, result, fields) => {
         if(err) throw err;
 
