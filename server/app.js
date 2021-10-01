@@ -2,10 +2,12 @@ const express    = require('express');
 const cors       = require('cors')
 const bodyParser = require('body-parser');
 const mysql      = require('mysql');
-const session    = require('session');
 const bcrypt     = require('bcrypt');
+const dotenv     = require("dotenv");
+dotenv.config();
 
 const axios      = require('axios');
+const db         = require('./dbServices');
 
 
 const app = express();
@@ -16,18 +18,6 @@ app.use(express.json());
 
 // CREATE TABLE user (id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, username VARCHAR(255), email VARCHAR(255) UNIQUE NOT NULL, password VARCHAR(255));
 
-const db = mysql.createConnection({
-    user    : 'root',
-    host    : 'localhost',
-    password: 'root',
-    database: 'pixilive'
-
-})
-
-db.connect(function(err) {
-    if (err) throw err;
-    console.log("Connecté à la base de données MySQL!");
-});
 
 app.get('/', function (req, res) {
     res.send("HELLO WORLD")
