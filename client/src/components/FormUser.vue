@@ -63,7 +63,6 @@ export default {
             if(this.form.username === "" && this.form.email=== "" && this.form.password === ""){
                 this.warning = "Entrer l'adresse mail & et le mot de passe";
             }else{
-                console.log(this.form)
                 this.$emit("sending-message", this.form);
             }
             

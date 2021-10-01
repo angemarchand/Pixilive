@@ -21,10 +21,8 @@ export default {
     methods: {
         submit(value){
             let userData = Object.assign({}, value); 
-            // console.log("i am new data", userData);
             axios.post("http://localhost:5500/user/register", userData)
             .then(response => {
-                // console.log(" je test ma variable", response.status)
                 if(response.status === 200){
                     this.$router.push({ name: "Login"})
                 }

@@ -15,21 +15,6 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(express.json());
 
-// 
-
-// const db = mysql.createConnection({
-//     user    : 'root',
-//     host    : 'localhost',
-//     password: 'root',
-//     database: 'pixilive'
-
-// })
-
-// db.connect(function(err) {
-//     if (err) throw err;
-//     console.log("Connecté à la base de données MySQL!");
-// });
-
 app.get('/', function (req, res) {
     res.send("HELLO WORLD")
 })
