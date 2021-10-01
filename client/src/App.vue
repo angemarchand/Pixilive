@@ -1,48 +1,70 @@
 <template>
-<div >
-  <div id="nav">
+  <div >
+    <div v-if="checkWindow()" class="container p-2"> 
       <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
-        <div class="container-fluid">
-          <!-- <a class="navbar-brand" href="#">OUTING SPORTS</a> -->
-          <router-link class="navbar-brand" to="/"> PIXILIVE </router-link> 
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <!-- <a class="nav-link active" aria-current="page" href="#">Home</a> -->
-                <router-link class="nav-link active" to="/"> HOME </router-link> 
-              </li>
-              <li class="nav-item">
-                <!-- <a class="nav-link" href="#">Features</a> -->
-                <router-link class="nav-link" to="/profile"> Profil </router-link> 
-              </li>
-              <li class="nav-item">
-                <!-- <a class="nav-link" href="#">Pricing</a> -->
-                <router-link class="nav-link" to="/register"> PRODUIT </router-link> 
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><router-link class="dropdown-item" to="/register"> Inscription </router-link></li>
-                  <li><router-link class="dropdown-item" to="/login"> Connexion </router-link></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
       </nav>
-  </div>
-  <router-view/>
+    </div>
+    <div v-else id="nav">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
+          <div class="container-fluid">
+            <!-- <a class="navbar-brand" href="#">OUTING SPORTS</a> -->
+            <router-link class="navbar-brand" to="/"> PIXILIVE </router-link> 
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <!-- <a class="nav-link active" aria-current="page" href="#">Home</a> -->
+                  <router-link class="nav-link active" to="/"> HOME </router-link> 
+                </li>
+                <li class="nav-item">
+                  <!-- <a class="nav-link" href="#">Features</a> -->
+                  <router-link class="nav-link" to="/admin"> Admin </router-link> 
+                </li>
+                <li class="nav-item">
+                  <!-- <a class="nav-link" href="#">Pricing</a> -->
+                  <router-link class="nav-link" to="/register"> PRODUIT </router-link> 
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Dropdown
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li><router-link class="dropdown-item" to="/register"> Inscription </router-link></li>
+                    <li><router-link class="dropdown-item" to="/login"> Connexion </router-link></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+    </div>
+  
+    <router-view/>
   <div class="footer mt-5 p-5">
     <p class="text-white">&copy; 2021 Pixilive tous droits reservés</p>
   </div>
 </div>
 
 </template>
+
+<script>
+
+export default{
+  name: 'App',
+  methods: {
+    checkWindow (){
+      if (window.location.pathname == "/admin") {
+        return true;
+      }else{
+          return false;
+      }
+    }
+  }
+}
+</script>
+
 
 <style>
 #app {
